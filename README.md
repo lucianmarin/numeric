@@ -1,5 +1,7 @@
 # Numeric
 
+![screenshot](screenshot.jpg)
+
 A fast, native macOS notepad-style scientific calculator with a built-in MathJS-compatible evaluation engine, physical unit conversions, matrices, complex numbers, and live syntax highlighting.
 
 ## Requirements

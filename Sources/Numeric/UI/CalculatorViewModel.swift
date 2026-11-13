@@ -73,7 +73,6 @@ public final class CalculatorViewModel: ObservableObject {
             return
         }
         if lines[index] != newText {
-            pushUndoSnapshot()
             lines[index] = newText
             recompute()
         }
@@ -188,7 +187,9 @@ public final class CalculatorViewModel: ObservableObject {
             }
             return line.rawLine
         }.joined(separator: "\n")
-        copyToPasteboard(formatted, label: "all lines")
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString(formatted, forType: .string)
+        showToast("Copied \(evaluation.lines.count) lines with results")
         return formatted
     }
 

@@ -130,9 +130,9 @@ private struct LinesEditorList: View {
                     )
                 }
 
-                // Clickable bottom area to add or focus the last line
+                // Clickable bottom area equal to one line height to add or focus the last line
                 Color.clear
-                    .frame(height: 120)
+                    .frame(height: 28)
                     .contentShape(Rectangle())
                     .onTapGesture {
                         if let last = viewModel.lines.last, !last.isEmpty {
@@ -375,7 +375,7 @@ final class CustomNSTextField: NSTextField {
     }
 }
 
-/// Basic bottom status bar displaying Syntax Reference, Undo, and Clear on the left, and Sum and Average on the right.
+/// Basic bottom status bar displaying Syntax Reference, Copy All, Undo, and Clear on the left, and Sum and Average on the right.
 private struct BottomStatusBar: View {
     @ObservedObject var viewModel: CalculatorViewModel
     let colors: AppColors
@@ -392,16 +392,8 @@ private struct BottomStatusBar: View {
 
     var body: some View {
         HStack(spacing: 12) {
-            // Left: Syntax Reference, Undo, and Clear buttons
+            // Left: Undo, Copy All, Clear, and Syntax buttons
             HStack(spacing: 14) {
-                StatusBarTextButton(
-                    title: "SYNTAX",
-                    helpText: "Syntax Reference",
-                    colors: colors
-                ) {
-                    viewModel.isReferenceOpen = true
-                }
-
                 StatusBarTextButton(
                     title: "UNDO",
                     helpText: "Undo",
@@ -412,11 +404,27 @@ private struct BottomStatusBar: View {
                 }
 
                 StatusBarTextButton(
+                    title: "COPY ALL",
+                    helpText: "Copy All with Results",
+                    colors: colors
+                ) {
+                    _ = viewModel.copyAllWithResults()
+                }
+
+                StatusBarTextButton(
                     title: "CLEAR",
                     helpText: "Clear Sheet",
                     colors: colors
                 ) {
                     viewModel.clearAll()
+                }
+
+                StatusBarTextButton(
+                    title: "SYNTAX",
+                    helpText: "Syntax Reference",
+                    colors: colors
+                ) {
+                    viewModel.isReferenceOpen = true
                 }
             }
 

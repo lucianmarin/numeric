@@ -26,7 +26,7 @@ struct NumericApp: App {
     var body: some Scene {
         WindowGroup("Numeric") {
             CalculatorView(viewModel: viewModel)
-                .frame(minWidth: 320, minHeight: 420)
+                .frame(minWidth: 348, minHeight: 420)
                 .onAppear {
                     NSApplication.shared.activate(ignoringOtherApps: true)
                 }

@@ -76,4 +76,23 @@ final class MathEngineTests: XCTestCase {
             }
         }
     }
+
+    @MainActor
+    func testUndoTracksLineAdditionsAndDeletionsNotCharacterEdits() {
+        let vm = CalculatorViewModel()
+        vm.lines = [""]
+        vm.updateLine(at: 0, to: "a")
+        vm.updateLine(at: 0, to: "ab")
+        vm.updateLine(at: 0, to: "abc")
+        XCTAssertFalse(vm.canUndo)
+
+        vm.insertLineAfter(0)
+        XCTAssertTrue(vm.canUndo)
+        XCTAssertEqual(vm.lines, ["abc", ""])
+
+        vm.updateLine(at: 1, to: "123")
+        vm.undo()
+        XCTAssertEqual(vm.lines, ["abc"])
+        XCTAssertFalse(vm.canUndo)
+    }
 }

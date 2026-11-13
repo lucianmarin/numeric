@@ -2,7 +2,7 @@ import SwiftUI
 import AppKit
 
 public let defaultDemoContent = """
-# Numeric — Native MathJS Calculator for macOS
+# Numeric — programmatic calculator for macOS
 # Variables, units, matrices, complex numbers & $line references
 
 price = 120

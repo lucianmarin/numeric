@@ -98,7 +98,7 @@ public enum MatrixOps {
         let bR = bRows.count
         let bC = bRows.first?.count ?? 0
 
-        // 1xN * 1xN dot product in MathJS [1,2,3] * [4,5,6] -> 32
+        // 1xN * 1xN dot product [1,2,3] * [4,5,6] -> 32
         if aR == 1 && bR == 1 && aC == bC {
             var sum: MathValue = .number(0.0)
             for i in 0..<aC {

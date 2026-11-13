@@ -24,7 +24,7 @@ public enum MathFunctions {
         "SQRT2": .number(sqrt(2.0)),
         "version": .string("13.0.3-swift"),
 
-        // Physical constants (MathJS CODATA values with units)
+        // Physical constants (CODATA values with units)
         "speedOfLight": .unit(value: 299792458.0, unit: UnitRegistry.resolve("m")!.divide(UnitRegistry.resolve("s")!)),
         "gravitationConstant": .number(6.67430e-11),
         "planckConstant": .number(6.62607015e-34),

@@ -522,7 +522,7 @@ private struct SyntaxReferenceSheet: View {
         VStack(spacing: 0) {
             HStack {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("MathJS Syntax Reference")
+                    Text("Syntax Reference")
                         .font(.system(size: 15, weight: .bold))
                         .foregroundStyle(colors.textMain)
                     Text("Click any example to insert it into your sheet")
